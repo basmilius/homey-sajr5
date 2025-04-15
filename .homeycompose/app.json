@@ -28,7 +28,9 @@
         "name": "Bas Milius",
         "email": "bas@mili.us"
     },
-    "bugs": "https://github.com/basmilius/homey-sajr5/issues",
+    "bugs": {
+        "url": "https://github.com/basmilius/homey-sajr5/issues"
+    },
     "source": "https://github.com/basmilius/homey-sajr5",
     "contributing": {
         "donate": {
