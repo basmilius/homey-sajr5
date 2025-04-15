@@ -1,0 +1,16 @@
+{
+    "sajr5": {
+        "pair": {
+            "title": "Add SAJ R5 inverter",
+            "subtitle": "Please enter the ip-address and port or your SAJ R5 inverter.",
+            "additional": "Additional",
+            "connect": "Connect",
+            "connection": "Connection",
+            "device": "Device",
+            "host": "Host",
+            "maxpeakpower": "Max peak power (Watt)",
+            "name": "Name",
+            "port": "Port"
+        }
+    }
+}

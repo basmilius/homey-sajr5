@@ -1,0 +1,40 @@
+{
+    "id": "com.basmilius.sajr5",
+    "version": "1.0.0",
+    "compatibility": ">=5.0.0",
+    "sdk": 3,
+    "brandColor": "#cf2d2b",
+    "platforms": [
+        "local"
+    ],
+    "name": {
+        "en": "SAJ R5",
+        "nl": "SAJ R5"
+    },
+    "description": {
+        "en": "Adds support for the SAJ R5 inverter.",
+        "nl": "Voegt support voor de SAJ R5 omvormer toe."
+    },
+    "category": [
+        "energy"
+    ],
+    "permissions": [],
+    "images": {
+        "small": "/assets/images/small.png",
+        "large": "/assets/images/large.png",
+        "xlarge": "/assets/images/xlarge.png"
+    },
+    "author": {
+        "name": "Bas Milius",
+        "email": "bas@mili.us"
+    },
+    "bugs": "https://github.com/basmilius/homey-sajr5/issues",
+    "source": "https://github.com/basmilius/homey-sajr5",
+    "contributing": {
+        "donate": {
+            "githubSponsors": {
+                "username": "basmilius"
+            }
+        }
+    }
+}

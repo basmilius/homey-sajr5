@@ -1,0 +1,139 @@
+<script type="text/javascript">
+    Homey.setTitle(__('sajr5.pair.title'));
+    Homey.setSubtitle(__('sajr5.pair.subtitle'));
+
+    /** @type HTMLFormElement */
+    const form = document.querySelector('.sajr5-form');
+
+    form.addEventListener('submit', evt => {
+        evt.preventDefault();
+
+        const data = new FormData(form);
+        const name = data.get('name');
+        const host = data.get('host');
+        const port = Number(data.get('port'));
+        const maxpeakpower = Number(data.get('maxpeakpower'));
+
+        const device = {
+            name,
+            data: {
+                id: Math.random().toString(36).substr(2, 5).toLowerCase()
+            },
+            settings: {
+                host,
+                port,
+                maxpeakpower
+            }
+        };
+
+        Homey.addDevice(device, (error, result) => {
+            if (error) {
+                console.error(error);
+                return;
+            }
+
+            console.log('addDevice()', result);
+            Homey.done();
+        });
+
+        console.log('submit', {name, host, port, maxpeakpower});
+    });
+</script>
+
+<style>
+    .sajr5-form {
+        display: flex;
+        height: 100%;
+        flex-flow: column;
+    }
+
+    .sajr5-form .homey-button-primary-full {
+        margin-top: auto;
+    }
+</style>
+
+<form class="homey-form sajr5-form">
+    <fieldset class="homey-form-fieldset">
+        <legend
+            class="homey-form-legend"
+            data-i18n="sajr5.pair.device"></legend>
+
+        <div class="homey-form-group">
+            <label
+                class="homey-form-label"
+                for="name"
+                data-i18n="sajr5.pair.name"></label>
+            <input
+                class="homey-form-input"
+                name="name"
+                id="name"
+                type="text"
+                value=""
+                placeholder="E.g. Solar panels"
+                required/>
+        </div>
+    </fieldset>
+
+    <fieldset class="homey-form-fieldset">
+        <legend
+            class="homey-form-legend"
+            data-i18n="sajr5.pair.connection"></legend>
+
+        <div class="homey-form-group">
+            <label
+                class="homey-form-label"
+                for="host"
+                data-i18n="sajr5.pair.host"></label>
+            <input
+                class="homey-form-input"
+                name="host"
+                id="host"
+                type="text"
+                value=""
+                placeholder="E.g. 0.0.0.0"
+                required/>
+        </div>
+
+        <div class="homey-form-group">
+            <label
+                class="homey-form-label"
+                for="port"
+                data-i18n="sajr5.pair.port"></label>
+            <input
+                class="homey-form-input"
+                name="port"
+                id="port"
+                type="number"
+                value="502"
+                max="65536"
+                min="1"
+                step="1"
+                required/>
+        </div>
+    </fieldset>
+
+    <fieldset class="homey-form-fieldset">
+        <legend
+            class="homey-form-legend"
+            data-i18n="sajr5.pair.additional"></legend>
+
+        <div class="homey-form-group">
+            <label
+                class="homey-form-label"
+                for="maxpeakpower"
+                data-i18n="sajr5.pair.maxpeakpower"></label>
+            <input
+                class="homey-form-input"
+                name="maxpeakpower"
+                id="maxpeakpower"
+                type="number"
+                value="4000"
+                min="0"
+                step="1"/>
+        </div>
+    </fieldset>
+
+    <button
+        class="homey-button-primary-full"
+        data-i18n="sajr5.pair.connect"></button>
+</form>

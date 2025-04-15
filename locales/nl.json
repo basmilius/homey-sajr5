@@ -1,0 +1,16 @@
+{
+    "sajr5": {
+        "pair": {
+            "title": "SAJ R5 omvormer toevoegen",
+            "subtitle": "Vul het IP adres en poortnummer van je SAJ R5 omvormer in.",
+            "additional": "Extra",
+            "connect": "Verbinden",
+            "connection": "Verbinding",
+            "device": "Apparaat",
+            "host": "Host",
+            "maxpeakpower": "Maximaal vermogen (Watt)",
+            "name": "Naam",
+            "port": "Poortnummer"
+        }
+    }
+}

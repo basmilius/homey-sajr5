@@ -1,0 +1,191 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.basmilius.sajr5",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#cf2d2b",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "SAJ R5",
+    "nl": "SAJ R5"
+  },
+  "description": {
+    "en": "Adds support for the SAJ R5 inverter.",
+    "nl": "Voegt support voor de SAJ R5 omvormer toe."
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Bas Milius",
+    "email": "bas@mili.us"
+  },
+  "contributing": {
+    "donate": {
+      "githubSponsors": {
+        "username": "basmilius"
+      }
+    }
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "SAJ R5 Inverter",
+        "nl": "SAJ R5 Omvormer"
+      },
+      "class": "solarpanel",
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "capabilities": [
+        "measure_power",
+        "measure_power.input",
+        "measure_power.pv1input",
+        "measure_power.pv2input",
+        "measure_current.phase1",
+        "measure_current.phase2",
+        "measure_current.phase3",
+        "measure_temperature.invertor",
+        "meter_power",
+        "meter_power.daily"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "decimals": 0,
+          "title": {
+            "en": "Solar Power",
+            "nl": "Zonne-energie"
+          }
+        },
+        "measure_power.input": {
+          "decimals": 0,
+          "title": {
+            "en": "Solar input",
+            "nl": "Zonne-ingang"
+          }
+        },
+        "measure_power.pv1input": {
+          "decimals": 0,
+          "title": {
+            "en": "PV1 input",
+            "nl": "PV1 ingang"
+          }
+        },
+        "measure_power.pv2input": {
+          "decimals": 0,
+          "title": {
+            "en": "PV2 input",
+            "nl": "PV2 ingang"
+          }
+        },
+        "measure_current.phase1": {
+          "title": {
+            "en": "AC Current phase1",
+            "nl": "AC Stroom fase 1"
+          }
+        },
+        "measure_current.phase2": {
+          "title": {
+            "en": "AC Current phase2",
+            "nl": "AC Stroom fase 2"
+          }
+        },
+        "measure_current.phase3": {
+          "title": {
+            "en": "AC Current phase3",
+            "nl": "AC Stroom fase 3"
+          }
+        },
+        "measure_temperature.invertor": {
+          "title": {
+            "en": "Inverter temperature",
+            "nl": "Temperatuur van omvormer"
+          },
+          "decimals": 2
+        },
+        "meter_power": {
+          "title": {
+            "en": "Total Yield",
+            "nl": "Totale opbrengst"
+          },
+          "decimals": 1
+        },
+        "meter_power.daily": {
+          "title": {
+            "en": "Total Day Yield",
+            "nl": "Totale dag opbrengst"
+          },
+          "decimals": 1,
+          "icon": "/assets/total_yield.svg"
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/inverter/assets/images/small.png",
+        "large": "/drivers/inverter/assets/images/large.png"
+      },
+      "pair": [
+        {
+          "id": "start"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Inverter settings",
+            "nl": "Instellingen omvormer"
+          },
+          "children": [
+            {
+              "id": "host",
+              "type": "text",
+              "value": "0.0.0.0",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP adres"
+              }
+            },
+            {
+              "id": "port",
+              "type": "number",
+              "value": 502,
+              "step": 1,
+              "label": {
+                "en": "Port",
+                "nl": "Poort"
+              }
+            },
+            {
+              "id": "maxpeakpower",
+              "type": "number",
+              "value": 0,
+              "step": 1,
+              "label": {
+                "en": "Max peak power in W",
+                "nl": "Max. piek vermogen in Watt"
+              }
+            }
+          ]
+        }
+      ],
+      "id": "inverter"
+    }
+  ]
+}
