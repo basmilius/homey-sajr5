@@ -1,27 +1,24 @@
 import { Device } from 'homey';
 import { client, type ModbusTCPClient } from 'jsmodbus';
 import { Socket } from 'node:net';
+import Data from './data';
 import mappings from './mappings';
-import registers, { type Measurement, type Measurements, type Register } from './registers';
+import registers, { type Measurements } from './registers';
 
-const INTERVAL = 5 * 1000;
+const INTERVAL = 10 * 1000;
 
 module.exports = class extends Device {
-
-    timer!: NodeJS.Timeout;
 
     async onInit(): Promise<void> {
         this.log('SAJR5 device has been initialized.');
         this.log(`id=${this.getData().id} name=${this.getName()} polling_interval=${INTERVAL}`);
 
-        this.timer = setInterval(() => this.poll(), INTERVAL);
         await this.poll();
     }
 
     async poll(): Promise<void> {
         const host = this.getSetting('host');
         const port = Number(this.getSetting('port'));
-        const unitId = Number(this.getSetting('id'));
 
         if (isNaN(port)) {
             return;
@@ -32,16 +29,16 @@ module.exports = class extends Device {
         const modbusOptions = {
             host,
             port,
-            unitId,
             timeout: 10,
             autoReconnect: false,
             logLabel: 'SAJR5 Inverter',
             logLevel: 'error',
-            logEnabled: true
+            logEnabled: true,
+            noDelay: true
         };
 
         const socket = new Socket();
-        const modbus = new client.TCP(socket, unitId, 5500);
+        const modbus = new client.TCP(socket, undefined, INTERVAL);
 
         socket.setKeepAlive(false);
         socket.connect(modbusOptions);
@@ -60,56 +57,61 @@ module.exports = class extends Device {
         };
 
         for (const measurement of measurements) {
-            const mapping = mappings.find(m => m.key === measurement.key);
+            const measurementMappings = mappings.filter(m => m.key === measurement.key);
 
-            if (!mapping || !mapping.check(measurement, ctx)) {
-                continue;
-            }
+            for (const mapping of measurementMappings) {
+                if (!mapping.check(measurement, ctx)) {
+                    continue;
+                }
 
-            const value = mapping.map(measurement, ctx);
+                const value = mapping.map(measurement, ctx, measurements);
 
-            if (value === null || value === undefined) {
-                continue;
-            }
+                if (value === null || value === undefined) {
+                    continue;
+                }
 
-            for (const capability of mapping.capabilities) {
-                this.addCapability(capability).catch(this.error);
-                this.setCapabilityValue(capability, value).catch(this.error);
+                for (const capability of mapping.capabilities) {
+                    this.addCapability(capability).catch(this.error);
+                    this.setCapabilityValue(capability, value).catch(this.error);
+                }
             }
         }
+
+        setTimeout(() => this.poll(), INTERVAL);
     }
 
-    async read(client: ModbusTCPClient, {key, id, size, type, label, scale}: Register): Promise<Measurement> {
-        const result = await client.readHoldingRegisters(id, size);
+    async read(client: ModbusTCPClient): Promise<Measurements> {
+        const result = await client.readHoldingRegisters(0x100, 60);
         const response = result.response;
+        const body = response.body.valuesAsArray;
+        const data = new Data(body);
+        const measurements: Measurements = [];
 
-        if (type === 'string') return {
-            key,
-            value: response.body.valuesAsBuffer.toString(),
-            scale: 0
-        };
+        for (const register of registers) {
+            let value: string | number | null;
 
-        if (type === 'uint16' || type === 'uint32') {
-            let value: number | null;
+            switch (register.type) {
+                case 'int16':
+                    value = data.at(register.id - 0x0100).int16();
+                    break;
 
-            if (type === 'uint16') {
-                value = response.body.valuesAsArray[0];
-            } else {
-                value = ((response.body.valuesAsArray[0] << 16) | response.body.valuesAsArray[1]);
+                case 'uint16':
+                    value = data.at(register.id - 0x0100).uint16();
+                    break;
+
+                case 'uint32':
+                    value = data.at(register.id - 0x0100).uint32();
+                    break;
             }
 
-            if (value === 65535) {
-                value = null;
-            }
-
-            return {
-                key,
-                value,
-                scale: 0
-            };
+            measurements.push({
+                key: register.key,
+                value: value,
+                scale: register.scale
+            });
         }
 
-        throw new Error(`Unknown type ${type}`);
+        return measurements;
     }
 
     async onClose(): Promise<void> {
@@ -119,24 +121,19 @@ module.exports = class extends Device {
     async onConnect(client: ModbusTCPClient, socket: Socket): Promise<void> {
         console.log('onConnect()', 'Socket connected.');
 
-        const measurements: Measurements = [];
-
-        for (const register of registers) {
-            try {
-                measurements.push(await this.read(client, register));
-            } catch (err) {
-                if (err instanceof Error) {
-                    console.error(err.message);
-                } else {
-                    console.error(err);
-                }
+        try {
+            const measurements = await this.read(client);
+            await this.process(measurements);
+        } catch (err) {
+            if (err instanceof Error) {
+                console.error(err.message);
+            } else {
+                console.error(err);
             }
         }
 
         client.socket.end();
         socket.end();
-
-        await this.process(measurements);
     }
 
     async onError(client: ModbusTCPClient, socket: Socket, err: Error): Promise<void> {
@@ -159,6 +156,7 @@ module.exports = class extends Device {
         }
 
         console.error('onError()', err.message);
+        setTimeout(() => this.poll(), INTERVAL);
 
         client.socket.end();
         socket.end();
@@ -171,4 +169,4 @@ module.exports = class extends Device {
         socket.end();
     }
 
-}
+};

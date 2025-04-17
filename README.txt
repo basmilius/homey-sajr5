@@ -1,1 +1,1 @@
-Adds support for the SAJ R5 inverter.
+Add your SAJ R5 inverter to Homey and gain insight into the operation of your solar panels.

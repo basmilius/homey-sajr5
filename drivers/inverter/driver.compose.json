@@ -14,6 +14,7 @@
         "measure_power.input",
         "measure_power.pv1input",
         "measure_power.pv2input",
+        "measure_power.pv3input",
         "measure_current.phase1",
         "measure_current.phase2",
         "measure_current.phase3",
@@ -32,8 +33,8 @@
         "measure_power.input": {
             "decimals": 0,
             "title": {
-                "en": "Solar input",
-                "nl": "Zonne-ingang"
+                "en": "PV input",
+                "nl": "PV ingang"
             }
         },
         "measure_power.pv1input": {
@@ -48,6 +49,13 @@
             "title": {
                 "en": "PV2 input",
                 "nl": "PV2 ingang"
+            }
+        },
+        "measure_power.pv3input": {
+            "decimals": 0,
+            "title": {
+                "en": "PV3 input",
+                "nl": "PV3 ingang"
             }
         },
         "measure_current.phase1": {

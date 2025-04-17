@@ -1,32 +1,49 @@
-import { Measurement } from './registers';
+import type { Measurement, Measurements, RegisterKey } from './registers';
 
 export type Mapping = {
-    readonly key: string;
+    readonly key: RegisterKey;
     readonly capabilities: string[];
 
     check(data: Measurement, ctx: Record<string, any>): boolean;
-    map(data: Measurement, ctx: Record<string, any>): string | number | null;
+    map(data: Measurement, ctx: Record<string, any>, measurements: Measurements): string | number | null;
 };
 
 export type Mappings = Mapping[];
 
-export default [
+const mappings: Mappings = [
     {
-        key: 'output_power',
+        key: 'power',
         capabilities: ['measure_power'],
         check: (data, ctx) => {
             if (data.value === null || typeof data.value !== 'number') return false;
             const value = data.value * 10 ** Number(data.scale ?? 0);
             return !ctx || ctx.maxpeakpower <= 0 || value <= ctx.maxpeakpower;
         },
-        map: (data, ctx) => {
-            const power = Number(data.value) * 10 ** Number(data.scale ?? 0);
+        map: (data, ctx, measurements) => {
+            let power = Number(data.value) * 10 ** Number(data.scale ?? 0);
+            const powerFactorMeasurement = measurements.find(m => m.key === 'power_factor');
+            const powerFactorMapping = mappings.find(m => m.key === 'power_factor');
+
+            if (powerFactorMeasurement && powerFactorMapping) {
+                const powerFactor = powerFactorMapping.map(powerFactorMeasurement, ctx, measurements);
+
+                if (powerFactor !== null && typeof powerFactor === 'number') {
+                    power = power * powerFactor;
+                }
+            }
+
             return ctx && ctx.maxpeakpower > 0 && power > ctx.maxpeakpower ? null : Math.round(power);
         }
     },
     {
-        key: 'input_power',
+        key: 'power',
         capabilities: ['measure_power.input'],
+        check: data => data.value !== null && typeof data.value === 'number',
+        map: data => Number(data.value) * 10 ** Number(data.scale ?? 0)
+    },
+    {
+        key: 'power_factor',
+        capabilities: [],
         check: data => data.value !== null && typeof data.value === 'number',
         map: data => Number(data.value) * 10 ** Number(data.scale ?? 0)
     },
@@ -49,14 +66,20 @@ export default [
         map: data => Number(data.value) * 10 ** Number(data.scale ?? 0)
     },
     {
-        key: 'pv1_input_power',
+        key: 'pv1_power',
         capabilities: ['measure_power.pv1input'],
         check: data => data.value !== null && typeof data.value === 'number',
         map: data => Number(data.value) * 10 ** Number(data.scale ?? 0)
     },
     {
-        key: 'pv2_input_power',
+        key: 'pv2_power',
         capabilities: ['measure_power.pv2input'],
+        check: data => data.value !== null && typeof data.value === 'number',
+        map: data => Number(data.value) * 10 ** Number(data.scale ?? 0)
+    },
+    {
+        key: 'pv3_power',
+        capabilities: ['measure_power.pv3input'],
         check: data => data.value !== null && typeof data.value === 'number',
         map: data => Number(data.value) * 10 ** Number(data.scale ?? 0)
     },
@@ -78,4 +101,6 @@ export default [
         check: data => data.value !== null && typeof data.value === 'number',
         map: data => Number(data.value) * 10 ** Number(data.scale ?? 0)
     }
-] satisfies Mappings;
+];
+
+export default mappings;
