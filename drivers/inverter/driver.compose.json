@@ -152,6 +152,26 @@
                     }
                 }
             ]
+        },
+        {
+            "type": "group",
+            "label": {
+                "en": "Advanced",
+                "nl": "Geavanceerd"
+            },
+            "children": [
+                {
+                    "id": "polling_interval",
+                    "type": "number",
+                    "value": 10000,
+                    "step": 1000,
+                    "min": 5000,
+                    "label": {
+                        "en": "Update interval in ms",
+                        "nl": "Update interval in ms"
+                    }
+                }
+            ]
         }
     ]
 }

@@ -5,15 +5,18 @@ import Data from './data';
 import mappings from './mappings';
 import registers, { type Measurements } from './registers';
 
-const INTERVAL = 10 * 1000;
+const PROBABLY_OFFLINE = ['ECONNREFUSED', 'EHOSTUNREACH'] as const;
 
 module.exports = class extends Device {
 
-    async onInit(): Promise<void> {
-        this.log('SAJR5 device has been initialized.');
-        this.log(`id=${this.getData().id} name=${this.getName()} polling_interval=${INTERVAL}`);
+    #interval: number = 10 * 1000;
+    #timeout: number = 0;
 
+    async onInit(): Promise<void> {
+        await this.updateInterval();
         await this.poll();
+
+        this.log('SAJR5 device has been initialized.');
     }
 
     async poll(): Promise<void> {
@@ -38,7 +41,7 @@ module.exports = class extends Device {
         };
 
         const socket = new Socket();
-        const modbus = new client.TCP(socket, undefined, INTERVAL);
+        const modbus = new client.TCP(socket, undefined, this.#interval);
 
         socket.setKeepAlive(false);
         socket.connect(modbusOptions);
@@ -77,7 +80,7 @@ module.exports = class extends Device {
             }
         }
 
-        setTimeout(() => this.poll(), INTERVAL);
+        await this.schedule();
     }
 
     async read(client: ModbusTCPClient): Promise<Measurements> {
@@ -114,6 +117,11 @@ module.exports = class extends Device {
         return measurements;
     }
 
+    async schedule(): Promise<void> {
+        this.#timeout && clearTimeout(this.#timeout);
+        this.#timeout = setTimeout(() => this.poll(), this.#interval) as unknown as number;
+    }
+
     async onClose(): Promise<void> {
         console.log('onClose()', 'Socket closed.');
     }
@@ -137,29 +145,33 @@ module.exports = class extends Device {
     }
 
     async onError(client: ModbusTCPClient, socket: Socket, err: Error): Promise<void> {
-        if (err.message.includes('ECONNREFUSED')) {
-            const measurements: Measurements = [];
-
-            for (const register of registers) {
-                if (!register.fallback) {
-                    continue;
-                }
-
-                measurements.push({
-                    key: register.key,
-                    value: register.fallback(),
-                    scale: 0
-                });
-            }
-
-            return await this.process(measurements);
+        if (PROBABLY_OFFLINE.some(code => err.message.includes(code))) {
+            return await this.onProbablyOffline();
         }
 
         console.error('onError()', err.message);
-        setTimeout(() => this.poll(), INTERVAL);
+        await this.schedule();
 
         client.socket.end();
         socket.end();
+    }
+
+    async onProbablyOffline(): Promise<void> {
+        const measurements: Measurements = [];
+
+        for (const register of registers) {
+            if (!register.fallback) {
+                continue;
+            }
+
+            measurements.push({
+                key: register.key,
+                value: register.fallback(),
+                scale: 0
+            });
+        }
+
+        return await this.process(measurements);
     }
 
     async onTimeout(client: ModbusTCPClient, socket: Socket): Promise<void> {
@@ -167,6 +179,18 @@ module.exports = class extends Device {
 
         client.socket.end();
         socket.end();
+    }
+
+    async onSettings(): Promise<void> {
+        await this.updateInterval();
+        await this.schedule();
+    }
+
+    async updateInterval(): Promise<void> {
+        setTimeout(() => {
+            this.#interval = (this.getSetting('polling_interval') ?? 10000) as number;
+            this.log(`id=${this.getData().id} name=${this.getName()} polling_interval=${this.#interval}`);
+        }, 100);
     }
 
 };
