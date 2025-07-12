@@ -10,5 +10,8 @@
   },
   "1.1.0": {
     "en": "This version allows you to use a custom polling interval and fixes some bugs."
+  },
+  "1.1.1": {
+    "en": "Small bugfix in fallback logic."
   }
 }
