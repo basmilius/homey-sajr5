@@ -145,15 +145,15 @@ module.exports = class extends Device {
     }
 
     async onError(client: ModbusTCPClient, socket: Socket, err: Error): Promise<void> {
+        client.socket.end();
+        socket.end();
+
         if (PROBABLY_OFFLINE.some(code => err.message.includes(code))) {
             return await this.onProbablyOffline();
         }
 
         console.error('onError()', err.message);
         await this.schedule();
-
-        client.socket.end();
-        socket.end();
     }
 
     async onProbablyOffline(): Promise<void> {
