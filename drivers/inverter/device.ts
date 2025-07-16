@@ -19,6 +19,20 @@ module.exports = class extends Device {
         this.log('SAJR5 device has been initialized.');
     }
 
+    async disconnect(client: ModbusTCPClient, socket: Socket): Promise<void> {
+        try {
+            if (client.socket && !client.socket.destroyed) {
+                client.socket.end();
+            }
+
+            if (socket && !socket.destroyed) {
+                socket.end();
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     async poll(): Promise<void> {
         const host = this.getSetting('host');
         const port = Number(this.getSetting('port'));
@@ -140,13 +154,11 @@ module.exports = class extends Device {
             }
         }
 
-        client.socket.end();
-        socket.end();
+        await this.disconnect(client, socket);
     }
 
     async onError(client: ModbusTCPClient, socket: Socket, err: Error): Promise<void> {
-        client.socket.end();
-        socket.end();
+        await this.disconnect(client, socket);
 
         if (PROBABLY_OFFLINE.some(code => err.message.includes(code))) {
             return await this.onProbablyOffline();
@@ -177,8 +189,7 @@ module.exports = class extends Device {
     async onTimeout(client: ModbusTCPClient, socket: Socket): Promise<void> {
         console.warn('onTimeout()', 'Socket timed out.');
 
-        client.socket.end();
-        socket.end();
+        await this.disconnect(client, socket);
     }
 
     async onSettings(): Promise<void> {
