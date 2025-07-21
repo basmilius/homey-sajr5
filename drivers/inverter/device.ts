@@ -46,7 +46,7 @@ module.exports = class extends Device {
         const modbusOptions = {
             host,
             port,
-            timeout: 10,
+            timeout: 15,
             autoReconnect: false,
             logLabel: 'SAJR5 Inverter',
             logLevel: 'error',
@@ -93,8 +93,6 @@ module.exports = class extends Device {
                 }
             }
         }
-
-        await this.schedule();
     }
 
     async read(client: ModbusTCPClient): Promise<Measurements> {
@@ -155,6 +153,7 @@ module.exports = class extends Device {
         }
 
         await this.disconnect(client, socket);
+        await this.schedule();
     }
 
     async onError(client: ModbusTCPClient, socket: Socket, err: Error): Promise<void> {
@@ -183,7 +182,8 @@ module.exports = class extends Device {
             });
         }
 
-        return await this.process(measurements);
+        await this.process(measurements);
+        await this.schedule();
     }
 
     async onTimeout(client: ModbusTCPClient, socket: Socket): Promise<void> {
