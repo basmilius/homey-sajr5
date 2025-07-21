@@ -16,5 +16,8 @@
   },
   "1.1.2": {
     "en": "Updated inverter icon."
+  },
+  "1.1.3": {
+    "en": "Fixed a bug where reading would stop after a read error."
   }
 }
