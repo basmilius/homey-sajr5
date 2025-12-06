@@ -19,5 +19,8 @@
   },
   "1.1.3": {
     "en": "Fixed a bug where reading would stop after a read error."
+  },
+  "1.1.4": {
+    "en": "This update adds translations for all Homey-supported languages."
   }
 }
