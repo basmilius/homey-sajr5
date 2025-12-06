@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "Legg til SAJ R5 inverter",
+      "subtitle": "Vennligst skriv inn IP-adressen og porten til din SAJ R5 inverter.",
+      "additional": "Tilleggsinformasjon",
+      "connect": "Koble til",
+      "connection": "Tilkobling",
+      "device": "Enhet",
+      "host": "Vert",
+      "maxpeakpower": "Maksymal toppeffekt (Watt)",
+      "name": "Navn",
+      "port": "Port"
+    }
+  }
+}

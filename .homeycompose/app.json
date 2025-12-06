@@ -9,11 +9,33 @@
   ],
   "name": {
     "en": "SAJ R5",
-    "nl": "SAJ R5"
+    "nl": "SAJ R5",
+    "da": "SAJ R5",
+    "de": "SAJ R5",
+    "es": "SAJ R5",
+    "fr": "SAJ R5",
+    "it": "SAJ R5",
+    "no": "SAJ R5",
+    "sv": "SAJ R5",
+    "pl": "SAJ R5",
+    "ru": "SAJ R5",
+    "ko": "SAJ R5",
+    "ar": "SAJ R5"
   },
   "description": {
     "en": "Monitor your SAJ R5 solar inverter with real-time energy insights.",
-    "nl": "Krijg inzicht in je SAJ R5 zonne-omvormer met real-time energie monitoring."
+    "nl": "Krijg inzicht in je SAJ R5 zonne-omvormer met real-time energie monitoring.",
+    "da": "Overvåg din SAJ R5 solomformer med realtidsenergindsigt.",
+    "de": "Überwachen Sie Ihren SAJ R5 Solarwechselrichter mit Echtzeit-Energieeinsichten.",
+    "es": "Monitorea tu inversor solar SAJ R5 con información energética en tiempo real.",
+    "fr": "Surveillez votre onduleur solaire SAJ R5 avec des aperçus énergétiques en temps réel.",
+    "it": "Monitora il tuo inverter solare SAJ R5 con approfondimenti energetici in tempo reale.",
+    "no": "Overvåk din SAJ R5 solcelleomformer med energiinnsikt i sanntid.",
+    "sv": "Övervaka din SAJ R5 solcellsinverter med energiinblickar i realtid.",
+    "pl": "Monitoruj swój falownik solarny SAJ R5 dzięki wglądowi w energię w czasie rzeczywistym.",
+    "ru": "Следите за вашим солнечным инвертором SAJ R5 с данными о энергии в реальном времени.",
+    "ko": "SAJ R5 태양광 인버터를 실시간 에너지 정보로 모니터링하세요.",
+    "ar": "راقب محول الطاقة الشمسية الخاص بك SAJ R5 مع رؤى الطاقة في الوقت الفعلي."
   },
   "category": [
     "energy"

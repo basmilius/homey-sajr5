@@ -1,0 +1,1 @@
+Dodaj swój inwerter SAJ R5 do Homey i uzyskaj wgląd w działanie swoich paneli słonecznych.

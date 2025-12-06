@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "Dodaj inwerter SAJ R5",
+      "subtitle": "Wprowadź adres IP i port swojego inwertera SAJ R5.",
+      "additional": "Dodatkowe",
+      "connect": "Połącz",
+      "connection": "Połączenie",
+      "device": "Urządzenie",
+      "host": "Host",
+      "maxpeakpower": "Moc szczytowa (Watt)",
+      "name": "Nazwa",
+      "port": "Port"
+    }
+  }
+}

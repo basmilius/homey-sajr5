@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "Ajouter un onduleur SAJ R5",
+      "subtitle": "Veuillez entrer l'adresse IP et le port de votre onduleur SAJ R5.",
+      "additional": "Supplémentaire",
+      "connect": "Connecter",
+      "connection": "Connexion",
+      "device": "Appareil",
+      "host": "Hôte",
+      "maxpeakpower": "Puissance de crête maximale (Watt)",
+      "name": "Nom",
+      "port": "Port"
+    }
+  }
+}

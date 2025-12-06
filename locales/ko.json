@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "SAJ R5 인버터 추가",
+      "subtitle": "SAJ R5 인버터의 IP 주소와 포트를 입력해 주세요.",
+      "additional": "추가",
+      "connect": "연결",
+      "connection": "연결 상태",
+      "device": "장치",
+      "host": "호스트",
+      "maxpeakpower": "최대 피크 전력 (Watt)",
+      "name": "이름",
+      "port": "포트"
+    }
+  }
+}

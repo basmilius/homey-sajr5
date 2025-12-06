@@ -1,0 +1,1 @@
+Tilføj din SAJ R5 inverter til Homey og få indblik i driften af dine solpaneler.

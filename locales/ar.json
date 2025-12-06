@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "أضف محول SAJ R5",
+      "subtitle": "يرجى إدخال عنوان IP والمنفذ الخاص بمحول SAJ R5 الخاص بك.",
+      "additional": "إضافي",
+      "connect": "اتصال",
+      "connection": "اتصال",
+      "device": "الجهاز",
+      "host": "المضيف",
+      "maxpeakpower": "أقصى قدرة ذروة (واط)",
+      "name": "الاسم",
+      "port": "المنفذ"
+    }
+  }
+}

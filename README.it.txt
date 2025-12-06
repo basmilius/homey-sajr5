@@ -1,0 +1,1 @@
+Aggiungi il tuo inverter SAJ R5 a Homey e ottieni informazioni sul funzionamento dei tuoi pannelli solari.

@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "Añadir inversor SAJ R5",
+      "subtitle": "Por favor, ingresa la dirección IP y el puerto de tu inversor SAJ R5.",
+      "additional": "Adicional",
+      "connect": "Conectar",
+      "connection": "Conexión",
+      "device": "Dispositivo",
+      "host": "Host",
+      "maxpeakpower": "Potencia máxima pico (Watt)",
+      "name": "Nombre",
+      "port": "Puerto"
+    }
+  }
+}

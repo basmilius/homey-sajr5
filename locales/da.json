@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "Tilføj SAJ R5 inverter",
+      "subtitle": "Indtast venligst ip-adressen og porten til din SAJ R5 inverter.",
+      "additional": "Yderligere",
+      "connect": "Forbind",
+      "connection": "Forbindelse",
+      "device": "Enhed",
+      "host": "Vært",
+      "maxpeakpower": "Maksimal spidseffekt (Watt)",
+      "name": "Navn",
+      "port": "Port"
+    }
+  }
+}

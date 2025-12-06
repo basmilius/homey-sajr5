@@ -10,11 +10,33 @@
   ],
   "name": {
     "en": "SAJ R5",
-    "nl": "SAJ R5"
+    "nl": "SAJ R5",
+    "da": "SAJ R5",
+    "de": "SAJ R5",
+    "es": "SAJ R5",
+    "fr": "SAJ R5",
+    "it": "SAJ R5",
+    "no": "SAJ R5",
+    "sv": "SAJ R5",
+    "pl": "SAJ R5",
+    "ru": "SAJ R5",
+    "ko": "SAJ R5",
+    "ar": "SAJ R5"
   },
   "description": {
     "en": "Monitor your SAJ R5 solar inverter with real-time energy insights.",
-    "nl": "Krijg inzicht in je SAJ R5 zonne-omvormer met real-time energie monitoring."
+    "nl": "Krijg inzicht in je SAJ R5 zonne-omvormer met real-time energie monitoring.",
+    "da": "Overvåg din SAJ R5 solomformer med realtidsenergindsigt.",
+    "de": "Überwachen Sie Ihren SAJ R5 Solarwechselrichter mit Echtzeit-Energieeinsichten.",
+    "es": "Monitorea tu inversor solar SAJ R5 con información energética en tiempo real.",
+    "fr": "Surveillez votre onduleur solaire SAJ R5 avec des aperçus énergétiques en temps réel.",
+    "it": "Monitora il tuo inverter solare SAJ R5 con approfondimenti energetici in tempo reale.",
+    "no": "Overvåk din SAJ R5 solcelleomformer med energiinnsikt i sanntid.",
+    "sv": "Övervaka din SAJ R5 solcellsinverter med energiinblickar i realtid.",
+    "pl": "Monitoruj swój falownik solarny SAJ R5 dzięki wglądowi w energię w czasie rzeczywistym.",
+    "ru": "Следите за вашим солнечным инвертором SAJ R5 с данными о энергии в реальном времени.",
+    "ko": "SAJ R5 태양광 인버터를 실시간 에너지 정보로 모니터링하세요.",
+    "ar": "راقب محول الطاقة الشمسية الخاص بك SAJ R5 مع رؤى الطاقة في الوقت الفعلي."
   },
   "category": [
     "energy"
@@ -44,7 +66,18 @@
     {
       "name": {
         "en": "SAJ R5 Inverter",
-        "nl": "SAJ R5 Omvormer"
+        "nl": "SAJ R5 Omvormer",
+        "da": "SAJ R5 Inverter",
+        "de": "SAJ R5 Wechselrichter",
+        "es": "Inversor SAJ R5",
+        "fr": "Onduleur SAJ R5",
+        "it": "Inverter SAJ R5",
+        "no": "SAJ R5 Inverter",
+        "sv": "SAJ R5 Inverter",
+        "pl": "Falownik SAJ R5",
+        "ru": "Инвертор SAJ R5",
+        "ko": "SAJ R5 인버터",
+        "ar": "عاكس SAJ R5"
       },
       "class": "solarpanel",
       "energy": {
@@ -70,73 +103,194 @@
           "decimals": 0,
           "title": {
             "en": "Solar Power",
-            "nl": "Zonne-energie"
+            "nl": "Zonne-energie",
+            "da": "Solenergi",
+            "de": "Solarleistung",
+            "es": "Energía solar",
+            "fr": "Énergie solaire",
+            "it": "Energia solare",
+            "no": "Solenergi",
+            "sv": "Solenergi",
+            "pl": "Energia słoneczna",
+            "ru": "Солнечная энергия",
+            "ko": "태양광",
+            "ar": "طاقة شمسية"
           }
         },
         "measure_power.input": {
           "decimals": 0,
           "title": {
             "en": "PV input",
-            "nl": "PV ingang"
+            "nl": "PV ingang",
+            "da": "PV-indgang",
+            "de": "PV-Eingang",
+            "es": "Entrada PV",
+            "fr": "Entrée PV",
+            "it": "Ingresso PV",
+            "no": "PV-inngang",
+            "sv": "PV-ingång",
+            "pl": "Wejście PV",
+            "ru": "Вход PV",
+            "ko": "PV 입력",
+            "ar": "مدخل PV"
           }
         },
         "measure_power.pv1input": {
           "decimals": 0,
           "title": {
             "en": "PV1 input",
-            "nl": "PV1 ingang"
+            "nl": "PV1 ingang",
+            "da": "PV1-indgang",
+            "de": "PV1-Eingang",
+            "es": "Entrada PV1",
+            "fr": "Entrée PV1",
+            "it": "Ingresso PV1",
+            "no": "PV1-inngang",
+            "sv": "PV1-ingång",
+            "pl": "Wejście PV1",
+            "ru": "Вход PV1",
+            "ko": "PV1 입력",
+            "ar": "مدخل PV1"
           }
         },
         "measure_power.pv2input": {
           "decimals": 0,
           "title": {
             "en": "PV2 input",
-            "nl": "PV2 ingang"
+            "nl": "PV2 ingang",
+            "da": "PV2-indgang",
+            "de": "PV2-Eingang",
+            "es": "Entrada PV2",
+            "fr": "Entrée PV2",
+            "it": "Ingresso PV2",
+            "no": "PV2-inngang",
+            "sv": "PV2-ingång",
+            "pl": "Wejście PV2",
+            "ru": "Вход PV2",
+            "ko": "PV2 입력",
+            "ar": "مدخل PV2"
           }
         },
         "measure_power.pv3input": {
           "decimals": 0,
           "title": {
             "en": "PV3 input",
-            "nl": "PV3 ingang"
+            "nl": "PV3 ingang",
+            "da": "PV3-indgang",
+            "de": "PV3-Eingang",
+            "es": "Entrada PV3",
+            "fr": "Entrée PV3",
+            "it": "Ingresso PV3",
+            "no": "PV3-inngang",
+            "sv": "PV3-ingång",
+            "pl": "Wejście PV3",
+            "ru": "Вход PV3",
+            "ko": "PV3 입력",
+            "ar": "مدخل PV3"
           }
         },
         "measure_current.phase1": {
           "title": {
             "en": "AC Current phase1",
-            "nl": "AC Stroom fase 1"
+            "nl": "AC Stroom fase 1",
+            "da": "AC Strøm fase 1",
+            "de": "AC-Strom Phase 1",
+            "es": "Corriente CA fase 1",
+            "fr": "Courant CA phase 1",
+            "it": "Corrente AC fase 1",
+            "no": "AC-strøm fase 1",
+            "sv": "AC-ström fas 1",
+            "pl": "Prąd AC faza 1",
+            "ru": "Ток AC фаза 1",
+            "ko": "교류 전류 1단계",
+            "ar": "تيار متردد المرحلة 1"
           }
         },
         "measure_current.phase2": {
           "title": {
             "en": "AC Current phase2",
-            "nl": "AC Stroom fase 2"
+            "nl": "AC Stroom fase 2",
+            "da": "AC Strøm fase 2",
+            "de": "AC-Strom Phase 2",
+            "es": "Corriente CA fase 2",
+            "fr": "Courant CA phase 2",
+            "it": "Corrente AC fase 2",
+            "no": "AC-strøm fase 2",
+            "sv": "AC-ström fas 2",
+            "pl": "Prąd AC faza 2",
+            "ru": "Ток AC фаза 2",
+            "ko": "교류 전류 2단계",
+            "ar": "تيار متردد المرحلة 2"
           }
         },
         "measure_current.phase3": {
           "title": {
             "en": "AC Current phase3",
-            "nl": "AC Stroom fase 3"
+            "nl": "AC Stroom fase 3",
+            "da": "AC Strøm fase 3",
+            "de": "AC-Strom Phase 3",
+            "es": "Corriente CA fase 3",
+            "fr": "Courant CA phase 3",
+            "it": "Corrente AC fase 3",
+            "no": "AC-strøm fase 3",
+            "sv": "AC-ström fas 3",
+            "pl": "Prąd AC faza 3",
+            "ru": "Ток AC фаза 3",
+            "ko": "교류 전류 3단계",
+            "ar": "تيار متردد المرحلة 3"
           }
         },
         "measure_temperature.invertor": {
           "title": {
             "en": "Inverter temperature",
-            "nl": "Temperatuur van omvormer"
+            "nl": "Temperatuur van omvormer",
+            "da": "Inverter temperatur",
+            "de": "Wechselrichtertemperatur",
+            "es": "Temperatura del inversor",
+            "fr": "Température de l'onduleur",
+            "it": "Temperatura dell'inverter",
+            "no": "Invertertemperatur",
+            "sv": "Invertertemperatur",
+            "pl": "Temperatura falownika",
+            "ru": "Температура инвертора",
+            "ko": "인버터 온도",
+            "ar": "درجة حرارة العاكس"
           },
           "decimals": 2
         },
         "meter_power": {
           "title": {
             "en": "Total Yield",
-            "nl": "Totale opbrengst"
+            "nl": "Totale opbrengst",
+            "da": "Samlet Udbytte",
+            "de": "Gesamtausbeute",
+            "es": "Rendimiento Total",
+            "fr": "Rendement Total",
+            "it": "Rendimento Totale",
+            "no": "Total avkastning",
+            "sv": "Totalavkastning",
+            "pl": "Całkowity plon",
+            "ru": "Общая прибыль",
+            "ko": "총 수익",
+            "ar": "الإنتاج الكلي"
           },
           "decimals": 1
         },
         "meter_power.daily": {
           "title": {
             "en": "Total Day Yield",
-            "nl": "Totale dag opbrengst"
+            "nl": "Totale dag opbrengst",
+            "da": "Samlet Daglig Udbytte",
+            "de": "Gesamttagesertrag",
+            "es": "Rendimiento Diario Total",
+            "fr": "Rendement Journalier Total",
+            "it": "Rendimento Giornaliero Totale",
+            "no": "Total dagsavkastning",
+            "sv": "Total dagsavkastning",
+            "pl": "Całkowity dzienny plon",
+            "ru": "Общая дневная прибыль",
+            "ko": "총 일간 수익",
+            "ar": "الإنتاج اليومي الكلي"
           },
           "decimals": 1,
           "icon": "/assets/total_yield.svg"
@@ -162,7 +316,18 @@
           "type": "group",
           "label": {
             "en": "Inverter settings",
-            "nl": "Instellingen omvormer"
+            "nl": "Instellingen omvormer",
+            "da": "Innstillinger for inverter",
+            "de": "Wechselrichtereinstellungen",
+            "es": "Configuraciones del inversor",
+            "fr": "Paramètres de l'onduleur",
+            "it": "Impostazioni dell'inverter",
+            "no": "Innstillinger for inverter",
+            "sv": "Inverterinställningar",
+            "pl": "Ustawienia falownika",
+            "ru": "Настройки инвертора",
+            "ko": "인버터 설정",
+            "ar": "إعدادات العاكس"
           },
           "children": [
             {
@@ -171,7 +336,18 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "IP Address",
-                "nl": "IP adres"
+                "nl": "IP adres",
+                "da": "IP-adresse",
+                "de": "IP-Adresse",
+                "es": "Dirección IP",
+                "fr": "Adresse IP",
+                "it": "Indirizzo IP",
+                "no": "IP-adresse",
+                "sv": "IP-adress",
+                "pl": "Adres IP",
+                "ru": "IP адрес",
+                "ko": "IP 주소",
+                "ar": "عنوان IP"
               }
             },
             {
@@ -181,7 +357,18 @@
               "step": 1,
               "label": {
                 "en": "Port",
-                "nl": "Poort"
+                "nl": "Poort",
+                "da": "Port",
+                "de": "Port",
+                "es": "Puerto",
+                "fr": "Port",
+                "it": "Porta",
+                "no": "Port",
+                "sv": "Port",
+                "pl": "Port",
+                "ru": "Порт",
+                "ko": "포트",
+                "ar": "منفذ"
               }
             },
             {
@@ -191,7 +378,18 @@
               "step": 1,
               "label": {
                 "en": "Max peak power in W",
-                "nl": "Max. piek vermogen in Watt"
+                "nl": "Max. piek vermogen in Watt",
+                "da": "Maksimal spidseffekt i W",
+                "de": "Max. Spitzenleistung in W",
+                "es": "Potencia máxima en W",
+                "fr": "Puissance crête max en W",
+                "it": "Potenza massima di picco in W",
+                "no": "Maksimal toppeffekt i W",
+                "sv": "Max toppkraft i W",
+                "pl": "Maks. moc szczytowa w W",
+                "ru": "Максимальная пиковая мощность в Вт",
+                "ko": "최대 피크 전력 (W)",
+                "ar": "الطاقة القصوى بالواط"
               }
             }
           ]
@@ -200,7 +398,18 @@
           "type": "group",
           "label": {
             "en": "Advanced",
-            "nl": "Geavanceerd"
+            "nl": "Geavanceerd",
+            "da": "Avanceret",
+            "de": "Erweitert",
+            "es": "Avanzado",
+            "fr": "Avancé",
+            "it": "Avanzato",
+            "no": "Avansert",
+            "sv": "Avancerat",
+            "pl": "Zaawansowane",
+            "ru": "Дополнительно",
+            "ko": "고급",
+            "ar": "متقدم"
           },
           "children": [
             {
@@ -211,7 +420,18 @@
               "min": 5000,
               "label": {
                 "en": "Update interval in ms",
-                "nl": "Update interval in ms"
+                "nl": "Update interval in ms",
+                "da": "Opdateringsinterval i ms",
+                "de": "Aktualisierungsintervall in ms",
+                "es": "Intervalo de actualización en ms",
+                "fr": "Intervalle de mise à jour en ms",
+                "it": "Intervallo di aggiornamento in ms",
+                "no": "Oppdateringsintervall i ms",
+                "sv": "Uppdateringsintervall i ms",
+                "pl": "Interwał aktualizacji w ms",
+                "ru": "Интервал обновления в мс",
+                "ko": "업데이트 간격 (ms)",
+                "ar": "فاصل التحديث بالمللي ثانية"
               }
             }
           ]

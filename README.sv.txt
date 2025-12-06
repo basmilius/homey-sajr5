@@ -1,0 +1,1 @@
+Lägg till din SAJ R5-växelriktare i Homey och få insikt i hur dina solpaneler fungerar.

@@ -1,0 +1,1 @@
+Füge deinen SAJ R5 Wechselrichter zu Homey hinzu und erhalte Einblicke in die Funktionsweise deiner Solarpanels.

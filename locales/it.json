@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "Aggiungi inverter SAJ R5",
+      "subtitle": "Inserisci per favore l'indirizzo IP e la porta del tuo inverter SAJ R5.",
+      "additional": "Aggiuntivo",
+      "connect": "Connetti",
+      "connection": "Connessione",
+      "device": "Dispositivo",
+      "host": "Host",
+      "maxpeakpower": "Potenza massima di picco (Watt)",
+      "name": "Nome",
+      "port": "Porta"
+    }
+  }
+}

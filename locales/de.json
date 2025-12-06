@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "SAJ R5 Wechselrichter hinzufügen",
+      "subtitle": "Bitte gib die IP-Adresse und den Port deines SAJ R5 Wechselrichters ein.",
+      "additional": "Zusätzlich",
+      "connect": "Verbinden",
+      "connection": "Verbindung",
+      "device": "Gerät",
+      "host": "Host",
+      "maxpeakpower": "Maximale Spitzenleistung (Watt)",
+      "name": "Name",
+      "port": "Port"
+    }
+  }
+}

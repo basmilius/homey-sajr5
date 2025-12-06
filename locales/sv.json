@@ -1,0 +1,16 @@
+{
+  "sajr5": {
+    "pair": {
+      "title": "Lägg till SAJ R5-växelriktare",
+      "subtitle": "Ange ip-adress och port för din SAJ R5-växelriktare.",
+      "additional": "Ytterligare",
+      "connect": "Anslut",
+      "connection": "Anslutning",
+      "device": "Enhet",
+      "host": "Värd",
+      "maxpeakpower": "Max toppeffekt (Watt)",
+      "name": "Namn",
+      "port": "Port"
+    }
+  }
+}
