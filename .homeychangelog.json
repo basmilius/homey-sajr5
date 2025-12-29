@@ -22,5 +22,8 @@
   },
   "1.1.4": {
     "en": "This update adds translations for all Homey-supported languages."
+  },
+  "1.1.5": {
+    "en": "Add paypal donate option."
   }
 }
