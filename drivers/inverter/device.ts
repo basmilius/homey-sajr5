@@ -159,7 +159,7 @@ module.exports = class extends Device {
     async onError(client: ModbusTCPClient, socket: Socket, err: Error): Promise<void> {
         await this.disconnect(client, socket);
 
-        if (PROBABLY_OFFLINE.some(code => err.message.includes(code))) {
+        if (err.message && PROBABLY_OFFLINE.some(code => err.message.includes(code))) {
             return await this.onProbablyOffline();
         }
 
