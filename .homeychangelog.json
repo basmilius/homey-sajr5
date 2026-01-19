@@ -25,5 +25,8 @@
   },
   "1.1.5": {
     "en": "Add paypal donate option."
+  },
+  "1.1.6": {
+    "en": "Fixed an issue where a particular error could not be handled."
   }
 }
