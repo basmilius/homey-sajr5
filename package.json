@@ -8,9 +8,9 @@
         "jsmodbus": "^4.0.10"
     },
     "devDependencies": {
-        "@tsconfig/node16": "^16.1.8",
+        "@tsconfig/node22": "^22.0.5",
         "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.12",
-        "@types/node": "^24.10.10",
-        "typescript": "^5.9.3"
+        "@types/node": "^25.6.0",
+        "typescript": "^6.0.2"
     }
 }
