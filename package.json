@@ -1,6 +1,7 @@
 {
     "name": "com.basmilius.sajr5",
     "version": "1.0.0",
+    "license": "MIT",
     "scripts": {
         "build": "tsc"
     },
