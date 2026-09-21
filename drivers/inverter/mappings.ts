@@ -19,31 +19,14 @@ const mappings: Mappings = [
             const value = data.value * 10 ** Number(data.scale ?? 0);
             return !ctx || ctx.maxpeakpower <= 0 || value <= ctx.maxpeakpower;
         },
-        map: (data, ctx, measurements) => {
-            let power = Number(data.value) * 10 ** Number(data.scale ?? 0);
-            const powerFactorMeasurement = measurements.find(m => m.key === 'power_factor');
-            const powerFactorMapping = mappings.find(m => m.key === 'power_factor');
-
-            if (powerFactorMeasurement && powerFactorMapping) {
-                const powerFactor = powerFactorMapping.map(powerFactorMeasurement, ctx, measurements);
-
-                if (powerFactor !== null && typeof powerFactor === 'number') {
-                    power = power * powerFactor;
-                }
-            }
-
+        map: (data, ctx) => {
+            const power = Number(data.value) * 10 ** Number(data.scale ?? 0);
             return ctx && ctx.maxpeakpower > 0 && power > ctx.maxpeakpower ? null : Math.round(power);
         }
     },
     {
         key: 'power',
         capabilities: ['measure_power.input'],
-        check: data => data.value !== null && typeof data.value === 'number',
-        map: data => Number(data.value) * 10 ** Number(data.scale ?? 0)
-    },
-    {
-        key: 'power_factor',
-        capabilities: [],
         check: data => data.value !== null && typeof data.value === 'number',
         map: data => Number(data.value) * 10 ** Number(data.scale ?? 0)
     },
