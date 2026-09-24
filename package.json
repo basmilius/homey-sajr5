@@ -6,6 +6,7 @@
         "build": "tsc"
     },
     "dependencies": {
+        "@basmilius/homey-common": "^1.25.0",
         "jsmodbus": "^4.0.10"
     },
     "devDependencies": {
